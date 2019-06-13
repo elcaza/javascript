@@ -88,8 +88,6 @@ const toRGB = (_hex) => {
 	}
 
 	return ("" +rgbNumbers[0]+ ", " +rgbNumbers[1]+ ", " +rgbNumbers[2]+ "");
-
-	console.log(rgbNumbers.join(""));
 }
 
 // console.log(toRGB("#FF0000"));
@@ -104,6 +102,7 @@ const multiple_split = (_string, _patternsArray) => { // ["+". "-"]
 	// let array = _string.split(_patternsArray[0]);
 	let finalArray = [];
 	let newString = _string;
+
 	// let re = (/\s/gi);
 	// console.log(re);
 	// let finalString = _string.replace(re, " ");
@@ -117,6 +116,7 @@ const multiple_split = (_string, _patternsArray) => { // ["+". "-"]
 
 		console.log(newString.split(_patternsArray[i]))
 	}
+
 
 	console.log("array: ", finalArray);
 }
