@@ -70,7 +70,7 @@ const toHex = (_r, _g, _b) => {
 	return ("#" + red + green + blue).toUpperCase();
 }
 
-// console.log(toHex(80,10,90));
+//console.log(toHex(80,11,90));
 
 
 const toRGB = (_hex) => {
@@ -110,19 +110,29 @@ const multiple_split = (_string, _patternsArray) => { // ["+". "-"]
 	// console.log(typeof(_patternsArray));
 	// console.log(_patternsArray.length);
 
-	for (let i=0; i<_patternsArray.length; i++){
-		//console.log("_patternsArray[i], ", _patternsArray[i])
-		finalArray = newString.split(_patternsArray[i]);
+	// const badReplace = (_regex) => {
+	// 	console.log("_regex:", _regex);
+	// 	newString = _string.replace(_regex, "+_*******_+");
+	// 	console.log(newString);
+	// 	return newString;
+	// }
 
-		console.log(newString.split(_patternsArray[i]))
-	}
+	// for (let i=0; i<_patternsArray.length; i++){
+	// 	// console.log("_patternsArray[i], ", _patternsArray[i])
+	// 	// finalArray = newString.split(_patternsArray[i]);
+
+	// 	// console.log(newString.split(_patternsArray[i]))
+	// 	newString = badReplace(_patternsArray[i]);
+	// }
+
+	newString = newString.replace(_patternsArray[0]).replace(_patternsArray[1]);
 
 
-	console.log("array: ", finalArray);
+	console.log("newString Final: ", newString);
 }
 
-multiple_split('Hi, how are you?', [' ']) // => # [Hi,', 'how', 'are', 'you?']
-multiple_split('1+2-3+', ['+', '-']) // => ['1', '2', '3']
+// multiple_split('Hi, how are you?', [' ']) // => # [Hi,', 'how', 'are', 'you?']
+// multiple_split('1+2-3', ['+', '-']) // => ['1', '2', '3']
 
 // **********************************************************************************************************
 // **********************************************************************************************************
