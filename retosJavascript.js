@@ -137,3 +137,16 @@ const multiple_split = (_string, _patternsArray) => { // ["+". "-"]
 // **********************************************************************************************************
 // **********************************************************************************************************
 // **********************************************************************************************************
+
+const repeatNumber = (_array) => {
+	let newString = "";
+	_array.forEach( (element) => {
+		//console.log(element);
+		newString += element.toString().repeat(element);
+		//console.log(newString)
+	});
+
+	return newString.split("").join().split();
+}
+
+ console.log( repeatNumber([1,2,3,4]) );
