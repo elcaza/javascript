@@ -11,8 +11,9 @@
 			<div class="tables__title"></div>
 			<div class="tables__close">x</div>
 		</div>
-		<div id="openNew" class="tables__openNew"></div>
+		
 	</section>
+	<div id="openNew" class="tables__openNew"></div>
 	<section class="content-"></section>
 </body>
 </html>
@@ -24,16 +25,13 @@
 	}
 	.header {
 		width: 100%;
-		height: 30px;
 		text-align: center;
 	}
 
 	.tables {
 		width: 100%;
-		height: 20px
-		display:flex;
 		background: #aaa;
-
+		display: inline-block;
 	}
 
 	.tables__table {
@@ -57,6 +55,7 @@
 		width: 25px;
 		height: 25px;
 		vertical-align: top;
+		display: inline-block;
 	}
 
 	.tables__openNew {
@@ -75,5 +74,20 @@
 </style>
 
 <script type="text/javascript">
+	let newTab = document.getElementById("openNew");
+	let tables = document.querySelector('.tables');
+
+
+
+	const openTab = (target) => {
+		target.addEventListener("click", (e) => {
+			e.preventDefault();
+			console.log("click, click");
+			console.log("tables");
+			tables.innerHTML += '<div class="tables__table"><div class="tables__title"></div><div class="tables__close">x</div></div>';
+		});
+	}
+
+	openTab(newTab);
 	
 </script>
