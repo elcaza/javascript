@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<title>Browser</title>
+	<link rel="stylesheet" href="browser.css">
 </head>
 <body>
 	<header class="header">Browser</header>
@@ -15,79 +16,9 @@
 	</section>
 	<div id="openNew" class="tables__openNew"></div>
 	<section class="content-"></section>
+
+	<footer>
+		<script src="browser.js"></script>
+	</footer>
 </body>
 </html>
-
-<style type="text/css">
-	* {
-		padding: 0;
-		margin: 0;
-	}
-	.header {
-		width: 100%;
-		text-align: center;
-	}
-
-	.tables {
-		width: 100%;
-		background: #aaa;
-		display: inline-block;
-	}
-
-	.tables__table {
-		display: inline-block;
-		width: 200px;
-		background: green;
-		vertical-align: top;
-	}
-
-	.tables__title {
-		width: 170px;
-		height: 20px;
-		background: #ccc;
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	.tables__close {
-		background: #ff0000;
-		display: inline-block;
-		width: 25px;
-		height: 25px;
-		vertical-align: top;
-		display: inline-block;
-	}
-
-	.tables__openNew {
-		width: 25px;
-		height: 25px;
-		background: yellow;
-		display: inline-block;
-	}
-
-	.content {
-		width: 100%;
-		height: 100vh;
-		display: flex;
-		background: #eee;
-	}
-</style>
-
-<script type="text/javascript">
-	let newTab = document.getElementById("openNew");
-	let tables = document.querySelector('.tables');
-
-
-
-	const openTab = (target) => {
-		target.addEventListener("click", (e) => {
-			e.preventDefault();
-			console.log("click, click");
-			console.log("tables");
-			tables.innerHTML += '<div class="tables__table"><div class="tables__title"></div><div class="tables__close">x</div></div>';
-		});
-	}
-
-	openTab(newTab);
-	
-</script>
