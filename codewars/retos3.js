@@ -1,94 +1,74 @@
-'use strict'
-// In this kata you should simply determine, whether a given year is a leap year or not.
-function isLeapYear(year) {
-	if ( year%4 === 0 ) {
-		if ( ((year%100 === 0)) ^ (year%400 === 0) ) {
-			return false;
-		} else {
-			return true;
-		}
-	} else {
-		return false;
-	}
-}
+// Retorna una array de parejas formada por el string que tú le envies
+// solution('abc') // should return ['ab', 'c_']
+// solution('abcdef') // should return ['ab', 'cd', 'ef']
 
-//console.log(isLeapYear(2000));
+const toPairs = (_string) => {
+    let array = _string.split("");
+    let collector = [];
+    let result = [];
+    // Creamos parejas de arrays en collector. collector = [ [a,b], [c,d], [e, undefined] ];
+    for (let i = 0 ; i < array.length; i = i +2) {
+        let pair = [];
+        pair.push(array[i], array[i+1])
+        collector.push(pair)
 
-// *****************************************************************
-// *****************************************************************
-// *****************************************************************
-// *****************************************************************
+    }
 
-// Write a function cmp(section1, section2) that returns -1, 0, or 1 
-// depending on whether section1 is before, same as, or after section2 respectively.
+    // Convertimos nuestros arrays internos a una cadena. result = [ 'ab', 'cd', 'e' ];
+    for (let i = 0; i < collector.length; i++) {
+        let pairString = ""
+        pairString = collector[i].join("")
+        result.push(pairString)
+    }
 
-const cmp = (section1, section2) => {
-	// Convertimos los argumentos a un array: [ '1', '0', '000', '20' ]
-	let array1 = section1.split(".");
-	let array2 = section2.split(".");
-	let allNumber1, allNumber2;
+    // Si estamos en el último elemento de nuestro array y es impar entonces añadimos un "_" a la cadena
+    if (result[result.length-1].length%2 !== 0) {
+        result[result.length-1]+= "_"
+    }
+    return result;
+};
 
-	// Retorna: 
-	// 1 si _a > _b
-	// 0 si _a == _b
-	//-1 si _a < _b
-	const compareValues = (_a, _b) => {
-		console.log("_a", _a);
-		console.log("_b", _b);
-		if (_a > _b) {
-			return 1;
-		}
-		if ( _a === _b) {
-			return 0;
-		} 
-		if ( _a < _b ) {
-			return -1;
-		}
-	}
+//console.log(toPairs('abc')); // should return ['ab', 'c_']
+//console.log(toPairs('abcdef')); // should return ['ab', 'cd', 'ef']
 
 
-	// Convertimos nuestro array de strings a un array de ints: [ 1, 0, 0, 20 ]
-	array1 = array1.map( sNumber => parseInt(sNumber, 10) );
-	array2 = array2.map( sNumber => parseInt(sNumber, 10) );
-	// console.log(`array1: ${array1} \nArray2: ${array2}`);
+// Your task is to write function which takes string and list of delimiters as an input and returns list of strings/characters after splitting given string.
+// multiple_split('Hi, how are you?', [' ']) => # [Hi,', 'how', 'are', 'you?']
+// multiple_split('1+2-3', ['+', '-']) => ['1', '2', '3']
 
-	// Igualamos los arrays rellenando los espacios vacíos con ceros:
-	if ( array1.length < array2.length ) {
-		for (let i = array1.length; i < array2.length; i++ ){
-			array1.push(0);
-		}
-	}
-	if ( array1.length > array2.length ) {
-		for (let i = array2.length; i < array1.length; i++ ){
-			array2.push(0);
-		}
-	}
-	// Convertimos los arrays a un string
-	// Quitamos las comas que hay en nuestro string
-	// Convertimos nuestro array a un number
-	allNumber1 = array1.toString();
-	allNumber1 = allNumber1.replace(/,/gi, "");
-	allNumber1 = parseInt(allNumber1);
+const multiple_split = (_string, _patternsArray) => { // ["+". "-"]
+    //let re = _patternsArray;
+    // let array = _string.split(_patternsArray[0]);
+    let finalArray = [];
+    let newString = _string;
 
-	allNumber2 = array2.toString();
-	allNumber2 = allNumber2.replace(/,/gi, "");
-	allNumber2 = parseInt(allNumber2);
+    // let re = (/\s/gi);
+    // console.log(re);
+    // let finalString = _string.replace(re, " ");
 
-	return compareValues(allNumber1, allNumber2);
+    // console.log(typeof(_patternsArray));
+    // console.log(_patternsArray.length);
 
-}
+    // const badReplace = (_regex) => {
+    // 	console.log("_regex:", _regex);
+    // 	newString = _string.replace(_regex, "+_*******_+");
+    // 	console.log(newString);
+    // 	return newString;
+    // }
 
-console.log("-1", cmp( "2.0.1.2", "2" ));//
+    // for (let i=0; i<_patternsArray.length; i++){
+    // 	// console.log("_patternsArray[i], ", _patternsArray[i])
+    // 	// finalArray = newString.split(_patternsArray[i]);
 
-// console.log("-1", cmp( "1.1", "1.2" ));
-// console.log(" 1", cmp( "1.1", "1" )); // ============== add 0
-// console.log("-0", cmp( "1.2.3.4", "1.2.3.4" ));
-// console.log("-0", cmp( "3", "3.0" )); // =============== add 0
-// console.log("-0", cmp( "3", "3.0.0.0" )); // ============= add 0
-// console.log(" 1", cmp( "1.2.1", "1.2.0" )); // ===========
-// console.log("-1", cmp( "3.0.0", "3.1.1" )); // ===========
-// console.log("-1", cmp( "3.0.1", "3.1" )); // ================ not add 0
-// console.log(" 0", cmp( "1.2.3", "1.02.003" ));
-// console.log(" 1", cmp( "1.20", "1.5" )); // ==============
+    // 	// console.log(newString.split(_patternsArray[i]))
+    // 	newString = badReplace(_patternsArray[i]);
+    // }
+
+    newString = newString.replace(_patternsArray[0]).replace(_patternsArray[1]);
 
 
+    console.log("newString Final: ", newString);
+};
+
+// multiple_split('Hi, how are you?', [' ']) // => # [Hi,', 'how', 'are', 'you?']
+// multiple_split('1+2-3', ['+', '-']) // => ['1', '2', '3']
