@@ -1,3 +1,5 @@
+"use strict";
+
 // Retorna una array de parejas formada por el string que tú le envies
 const toPairs = (_string) => {
 	let array = _string.split("");
@@ -23,7 +25,7 @@ const toPairs = (_string) => {
 		result[result.length-1]+= "_"
 	}
 	return result;
-}
+};
 //console.log(toPairs('abc')); // should return ['ab', 'c_']
 //console.log(toPairs('abcdef')); // should return ['ab', 'cd', 'ef']
 
@@ -68,7 +70,7 @@ const toHex = (_r, _g, _b) => {
 
 	//return ("#" +red.toString(16) + green.toString(16) + blue.toString(16)).toUpperCase();
 	return ("#" + red + green + blue).toUpperCase();
-}
+};
 
 //console.log(toHex(80,11,90));
 
@@ -88,7 +90,7 @@ const toRGB = (_hex) => {
 	}
 
 	return ("" +rgbNumbers[0]+ ", " +rgbNumbers[1]+ ", " +rgbNumbers[2]+ "");
-}
+};
 
 // console.log(toRGB("#FF0000"));
 
@@ -147,6 +149,6 @@ const repeatNumber = (_array) => {
 	});
 
 	return newString.split("").join().split();
-}
+};
 
  console.log( repeatNumber([1,2,3,4]) );
