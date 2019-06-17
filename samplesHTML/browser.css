@@ -1,51 +1,185 @@
-* {
-    padding: 0;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*==============================================*/
+/*==============================================*/
+:root {
+    --header_marginTop: 15px;
+    --heigth_header: 30px;
+    --heigth_footer: 40px;
+    --heigth_container: calc(100vh - 100px);
+}
+
 .header {
-    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: var( --heigth_header );
+    margin-top: var(--header_marginTop);
+    padding-right: 30px;
+}
+
+.header__link {
+    text-decoration: none;
+    color: #4b41bd;
+    margin-left: 15px;
+}
+
+.header__apps {
+    width: 25px;
+    height: 25px;
+    background: gray;
+    margin-left: 15px;
+}
+
+.header__account {
+    width: 25px;
+    height: 25px;
+    background: gray;
+    margin-left: 15px;
+}
+
+.contain {
+    height: var(--heigth_container);
+    display: grid;
+    align-items: center;
+}
+
+.contain__image {
+    display: block;
+    margin: auto;
+}
+
+.contain__search {
+    width: 554px;
+    padding: 5px 8px 0px 16px;
+    height: 43px;
+    border-radius: 40px;
+    border: 1px solid #dfe1e5;
+    box-sizing: border-box;
+    margin: 25px 0px;
+}
+
+.contain__search:focus {
+    outline: none;
+}
+
+.contain__container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.contain__button {
+    line-height: 29px;
+    border: 0px;
+    background-color: #f1f1f1;
+    color: #5f6368;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0 16px;
+    margin: 11px 4px;
+    font-size: 14px;
+    height: 36px;
     text-align: center;
 }
 
-.tables {
+.contain__text {
+
+}
+
+.contain__link {
+    text-decoration: none;
+    color: #4b41bd;
+}
+
+.footer {
     width: 100%;
-    background: #aaa;
-    display: inline-block;
+    position: absolute;
+    bottom: 2px;
 }
 
-.tables__table {
-    display: inline-block;
-    width: 200px;
-    background: green;
-    vertical-align: top;
-}
-
-.tables__title {
-    width: 170px;
-    height: 20px;
-    background: #ccc;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.tables__close {
-    background: #ff0000;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    vertical-align: top;
-}
-
-.tables__openNew {
-    width: 25px;
-    height: 25px;
-    background-color: yellow;
-    display: inline-block;
-}
-
-.content {
+.footer__country {
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 1px solid #e4e4e4;
+    border-right: 0px;
+    border-left: 0px;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    background: #eee;
+    line-height: 40px;
+    padding: 0px 27px;
+    box-sizing: border-box;
+    color: #6f6f6f;
+}
+
+.footer__container {
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 1px solid #e4e4e4;
+    border-right: 0px;
+    border-left: 0px;
+    width: 100%;
+    line-height: 40px;
+    padding: 0px 27px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.footer__left {
+
+}
+
+.footer__right {
+    text-align: right;
+}
+
+.footer__link {
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 25px;
+    color: #6f7377;
+}
+
+.footer__link:last-child {
+    margin-right: 0px;
 }

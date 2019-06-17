@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
 	<title>Browser</title>
-	<link rel="stylesheet" href="browser.css">
+    <link rel="stylesheet" type="text/css" href="browser.css">
 </head>
 <body>
-	<header class="header">Browser</header>
-
-	<section class="tables">
-		<div class="tables__table">
-			<div class="tables__title"></div>
-			<div class="tables__close">x</div>
-		</div>
-		
-	</section>
-	<div id="openNew" class="tables__openNew"></div>
-	<section class="content-"></section>
-
-	<footer>
+    <header class="header">
+        <a href="http://www.gmail.com" class="header__link">Mail</a>
+        <a href="http://www.images.google.com" class="header__link">Imágenes</a>
+        <div class="header__apps"></div>
+        <div class="header__account"></div>
+    </header>
+    <section class="contain">
+        <div class="contain__container">
+            <img src="https://images.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="" class="contain__image">
+            <input id="contain__searchContent" type="text" class="contain__search">
+            <div class="contain__container">
+                <button id="searchByGoogle" class="contain__button" >Buscar con Google</button>
+                <button id="luckyByGoogle" class="contain__button">Me siento con suerte</button>
+            </div>
+            <div class="contain__text">
+                <p><a class="contain__link" href="">Lorem ipsum dolor sit amet,</a> consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </section>
+	<footer class="footer">
+        <div class="footer__country">México</div>
+        <div class="footer__container">
+            <div class="footer__left">
+                <a href="" class="footer__link">Publicidad</a>
+                <a href="" class="footer__link">Negocios</a>
+                <a href="" class="footer__link">Acerca de</a>
+                <a href="" class="footer__link">Cómo funciona la Busqueda</a>
+            </div>
+            <div class="footer__right">
+                <a href="" class="footer__link">Privacidad</a>
+                <a href="" class="footer__link">Condiciones</a>
+                <a href="" class="footer__link">Preferencias</a>
+            </div>
+        </div>
 		<script src="browser.js"></script>
 	</footer>
 </body>
