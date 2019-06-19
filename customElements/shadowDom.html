@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shadow Dom</title>
+</head>
+<body>
+	<my-shadow-dom></my-shadow-dom>
+</body>
+<script type="text/javascript">
+	class MyShadowDom extends HTMLElement {
+		constructor() {
+			super();
+			const shadowRoot = this.attachShadow({mode: `closed`});
+			shadowRoot.innerHTML = `<div>algo</div>`;
+		}
+	}
+	window.customElements.define('my-shadow-dom', MyShadowDom);
+</script>
+</html>
