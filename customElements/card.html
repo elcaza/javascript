@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card</title>
+</head>
+<body>
+    <div id="card" class="containerCard">
+        <div class="containerCard__sideA">
+            <img class="containerCard__img" src="img/no-profile-img.jpg" alt="">
+            <div class="containerCard__info">
+                <div class="containerCard__num">4941 2210 8745 0002</div>
+                <div class="containerCard__name">Lorem Ipsum Sum</div>
+                <div class="containerCard__exp">12/27</div>
+            </div>
+        </div>
+        <div class="containerCard__sideB">
+            <h1 class="containerCard__title">back</h1>
+            <p class="containerCard__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum scelerisque augue id commodo. Pellentesque placerat sagittis accumsan. Mauris sit amet tortor velit. Vivamus congue nibh lectus, ut pulvinar turpis congue vitae.</p>
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+<style>
+    .containerCard {
+        width: 500px;
+        height: 250px;
+        background-color: #eee;
+        margin: auto;
+        margin-top:200px;
+        border-radius: 4px;
+        border: 2px solid #e8e7e7;
+        position: relative;
+    }
+
+    .containerCard__sideA {
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .containerCard__sideB {
+        opacity: 0;
+    }
+
+    .back .containerCard__sideA {
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .back .containerCard__sideB {
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .containerCard.back {
+        transform: rotate3d(30,30,30,360deg);
+        transition: 1s;
+    }
+
+    .containerCard.toStart {
+        transform: rotate3d(0,0,0,360deg);
+        transition: 1s;
+    }
+
+    .containerCard__img {
+        width: 140px;
+    }
+
+    .containerCard__info {
+
+    }
+
+    .containerCard__num {
+
+    }
+
+    .containerCard__name {
+
+    }
+
+    .containerCard__exp {
+
+    }
+
+    .containerCard__title {
+        text-align: center;
+    }
+
+    .containerCard__description {
+        text-align: center;
+    }
+</style>
+
+<script>
+    card = document.querySelector("#card");
+    sideA = document.querySelector(".containerCard__sideA");
+    sideB = document.querySelector(".containerCard__sideB");
+    card.addEventListener("click", () => {
+        if (card.classList.contains('back')){
+            card.classList.remove("back");
+            card.classList.add("toStart")
+        } else {
+            //sideA.
+            card.classList.add("back");
+            card.classList.remove("toStart");
+        }
+    });
+</script>
