@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<template id="ScoreTemplate">
+    <div class="scoreContainer">
+        <span class="scoreContainer__player">Player 1</span>
+        <span class="scoreContainer__goods">10</span>
+        <span class="scoreContainer__bads">3</span>
+    </div>
+
+    <style>
+        .scoreContainer {
+            width: 550px;
+            height: 80px;
+            background-color: gray;
+            margin: auto;
+            border-radius: 9px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .scoreContainer__player {
+            font-size:25px;
+        }
+
+        .scoreContainer__goods {
+            font-size:25px;
+        }
+
+        .scoreContainer__bads {
+            font-size:25px;
+        }
+    </style>
+
+    <script>
+
+    </script>
+</template>
+<score-template></score-template>
+</body>
+
+<script type="text/javascript">
+    class ScoreTemplate extends HTMLElement {
+        constructor(){
+            super();
+            const shadowRoot = this.attachShadow({mode: 'open'});
+            // //shadowRoot.innerHTML = `<div>algo</div>`;
+            //
+            // const template = document.querySelector('#CardTemplate');
+            // let templateContent = template.content;
+            // shadowRoot.appendChild(templateContent.cloneNode(true));
+
+            const template = document.querySelector("#ScoreTemplate");
+            let templateContent = template.content.cloneNode(true);
+            shadowRoot.appendChild(templateContent);
+
+        }
+
+        connectedCallback() {
+
+        }
+    }
+
+    window.customElements.define("score-template", ScoreTemplate);
+</script>
+
+</html>

@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<style type="text/css">
-
-	</style>
-</head>
-<body>
-	<template id="CardTemplate">
+<template id="CardTemplate">
 		<div id="card" class="containerCard">
 			<div class="containerCard__sideA">
-				<img class="containerCard__img" src="img/no-profile-img.jpg" alt="">
+				<img class="containerCard__img" src="cardComponent/img/no-profile-img.jpg" alt="">
 				<div class="containerCard__info">
 					<div class="containerCard__num">4941 2210 8745 0002</div>
 					<div class="containerCard__name">Lorem Ipsum Sum</div>
@@ -95,6 +86,8 @@
 
 		<script>
 			// card = document.querySelector("#card");
+			// console.log(card);
+			// console.log("sss");
 			// sideA = document.querySelector(".containerCard__sideA");
 			// sideB = document.querySelector(".containerCard__sideB");
 			// card.addEventListener("click", () => {
@@ -109,8 +102,6 @@
 			// });
 		</script>
 	</template>
-	<card-template></card-template>
-</body>
 
 <script type="text/javascript">
 	class CardTemplate extends HTMLElement {
@@ -130,13 +121,15 @@
 			this.templateContent = importDocument.querySelector('#CardTemplate');
 			this.attachShadow({mode: 'open'});
 			const clone = this.templateContent.content.cloneNode(true);
+
+
 			this.shadowRoot.appendChild(clone);
 			this.getCard();
 			console.log("this");
 			this.card = this.shadowRoot.querySelector("#card");
-			// console.log(this.shadowRoot.querySelector("#card"));
-			console.log(this.card);
-			this.card.classList("back");
+			console.log(this.shadowRoot.querySelector("#card"));
+			this.card.classList.add("test");
+
 		}
 
 		getCard() {
@@ -147,5 +140,3 @@
 
 	window.customElements.define("card-template", CardTemplate);
 </script>
-
-</html>
