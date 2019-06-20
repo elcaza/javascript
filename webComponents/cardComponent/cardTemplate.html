@@ -117,22 +117,37 @@
 		}
 
 		connectedCallback() {
+			/// ===========================================
 			let importDocument = document.currentScript.ownerDocument;
 			this.templateContent = importDocument.querySelector('#CardTemplate');
 			this.attachShadow({mode: 'open'});
+
 			const clone = this.templateContent.content.cloneNode(true);
 
-
-			this.shadowRoot.appendChild(clone);
-			this.getCard();
+			this.shadowRoot.appendChild(clone);		
 			console.log("this");
 			this.card = this.shadowRoot.querySelector("#card");
 			console.log(this.shadowRoot.querySelector("#card"));
 			this.card.classList.add("test");
+			this.addClass();
+			/// _______________________________________
+
+			// // import from ownerDocument
+			// const importDocument = document.currentScript.ownerDocument;
+			// let shadowRoot = this.attachShadow({mode: 'open'});
+			// const template = importDocument.querySelector('#template');
+			// const instance = template.content.cloneNode(true);
+			// shadowRoot.appendChild(instance);
+
+			// // Event Listener
+			// this.addEventListener('click', e => this.changeStyle());
 
 		}
 
-		getCard() {
+		addClass() {
+			console.log("okokok");
+		    this.shadowRoot.querySelector("#card").classList.add('card');
+
 			// this.card = document.querySelector("#card");
 			// console.log("ok", this.card);
 		}
