@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<template id="CardTemplate">
+		<div class="card">
+			<img src="">
+			<h1>Title</h1>
+		</div>
+	</template>
+	<card-template></card-template>
+</body>
+<script type="text/javascript">
+	class CardTemplate extends HTMLElement {
+		constructor(){
+			super();
+			const shadowRoot = this.attachShadow({mode: 'open'});
+			//shadowRoot.innerHTML = `<div>algo</div>`;
+		}
+
+		connectedCallback() {
+			const template = document.querySelector('#CardTemplate');
+			const clone = template.content.cloneNode(true);
+			this.appendChild(clone);
+		}
+	}
+
+	window.customElements.define("card-template", CardTemplate);
+</script>
+
+</html>
