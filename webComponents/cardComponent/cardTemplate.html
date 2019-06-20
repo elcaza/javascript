@@ -116,17 +116,27 @@
 	class CardTemplate extends HTMLElement {
 		constructor(){
 			super();
-			const shadowRoot = this.attachShadow({mode: 'open'});
-			//shadowRoot.innerHTML = `<div>algo</div>`;
-
-			const template = document.querySelector('#CardTemplate');
-			let templateContent = template.content;
-			shadowRoot.appendChild(templateContent.cloneNode(true));
+			// const shadowRoot = this.attachShadow({mode: 'open'});
+			// //shadowRoot.innerHTML = `<div>algo</div>`;
+			//
+			// const template = document.querySelector('#CardTemplate');
+			// let templateContent = template.content;
+			// shadowRoot.appendChild(templateContent.cloneNode(true));
 
 		}
 
 		connectedCallback() {
+			let importDocument = document.currentScript.ownerDocument;
+			this.templateContent = importDocument.querySelector('#CardTemplate');
+			this.attachShadow({mode: 'open'});
+			const clone = this.templateContent.content.cloneNode(true);
+			this.shadowRoot.appendChild(clone);
+			this.getCard();
+		}
 
+		getCard() {
+			// this.card = document.querySelector("#card");
+			// console.log("ok", this.card);
 		}
 	}
 
