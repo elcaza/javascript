@@ -132,6 +132,11 @@
 			const clone = this.templateContent.content.cloneNode(true);
 			this.shadowRoot.appendChild(clone);
 			this.getCard();
+			console.log("this");
+			this.card = this.shadowRoot.querySelector("#card");
+			// console.log(this.shadowRoot.querySelector("#card"));
+			console.log(this.card);
+			this.card.classList("back");
 		}
 
 		getCard() {
