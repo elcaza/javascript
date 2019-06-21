@@ -24,6 +24,7 @@
 				border-radius: 4px;
 				border: 2px solid #e8e7e7;
 				position: relative;
+				cursor:pointer;
 			}
 
 			.containerCard__sideA {
@@ -43,6 +44,9 @@
 			.back .containerCard__sideB {
 				opacity: 1;
 				transition: 0.5s;
+				position: absolute;
+				top: 0;
+				padding: 10px;
 			}
 
 			.containerCard.back {
@@ -83,73 +87,40 @@
 				text-align: center;
 			}
 		</style>
-
-		<script>
-			// card = document.querySelector("#card");
-			// console.log(card);
-			// console.log("sss");
-			// sideA = document.querySelector(".containerCard__sideA");
-			// sideB = document.querySelector(".containerCard__sideB");
-			// card.addEventListener("click", () => {
-			// 	if (card.classList.contains('back')){
-			// 		card.classList.remove("back");
-			// 		card.classList.add("toStart")
-			// 	} else {
-			// 		//sideA.
-			// 		card.classList.add("back");
-			// 		card.classList.remove("toStart");
-			// 	}
-			// });
-		</script>
 	</template>
 
 <script type="text/javascript">
 	class CardTemplate extends HTMLElement {
 		constructor(){
 			super();
-			// const shadowRoot = this.attachShadow({mode: 'open'});
-			// //shadowRoot.innerHTML = `<div>algo</div>`;
-			//
-			// const template = document.querySelector('#CardTemplate');
-			// let templateContent = template.content;
-			// shadowRoot.appendChild(templateContent.cloneNode(true));
 
 		}
 
 		connectedCallback() {
-			/// ===========================================
-			let importDocument = document.currentScript.ownerDocument;
-			this.templateContent = importDocument.querySelector('#CardTemplate');
-			this.attachShadow({mode: 'open'});
-
-			const clone = this.templateContent.content.cloneNode(true);
-
-			this.shadowRoot.appendChild(clone);		
-			console.log("this");
-			this.card = this.shadowRoot.querySelector("#card");
-			console.log(this.shadowRoot.querySelector("#card"));
-			this.card.classList.add("test");
-			this.addClass();
-			/// _______________________________________
-
 			// // import from ownerDocument
-			// const importDocument = document.currentScript.ownerDocument;
-			// let shadowRoot = this.attachShadow({mode: 'open'});
-			// const template = importDocument.querySelector('#template');
-			// const instance = template.content.cloneNode(true);
-			// shadowRoot.appendChild(instance);
+			const importDocument = document.currentScript.ownerDocument;
+			let shadowRoot = this.attachShadow({mode: 'open'});
+			const template = importDocument.querySelector('#CardTemplate');
+			const instance = template.content.cloneNode(true);
+			shadowRoot.appendChild(instance);
 
 			// // Event Listener
-			// this.addEventListener('click', e => this.changeStyle());
+			this.addEventListener('click', e => this.addClass());
 
 		}
 
 		addClass() {
-			console.log("okokok");
-		    this.shadowRoot.querySelector("#card").classList.add('card');
+			this.card = this.shadowRoot.querySelector("#card");
+			this.sideA = this.shadowRoot.querySelector(".containerCard__sideA");
+			this.sideB = this.shadowRoot.querySelector(".containerCard__sideB");
 
-			// this.card = document.querySelector("#card");
-			// console.log("ok", this.card);
+			if (this.card.classList.contains('back')){
+				this.card.classList.remove("back");
+				this.card.classList.add("toStart")
+			} else {
+				this.card.classList.add("back");
+				this.card.classList.remove("toStart");
+			}
 		}
 	}
 
